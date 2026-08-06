@@ -30,13 +30,14 @@ create table if not exists public.applications (
   constraint applications_grade_range
     check (grade is null or (grade between 1 and 11)),
   constraint applications_status_chk
-    check (status in ('pupil', 'student', 'adult')),
+    check (status in ('pupil', 'student', 'adult', 'other')),
   constraint applications_level_chk
     check (level in ('beginner', 'intermediate', 'advanced')),
   constraint applications_goal_chk
     check (goal in ('school', 'exam', 'self', 'other')),
   constraint applications_format_chk
-    check (format in ('individual', 'group')),
+    check (format in ('individual_offline', 'individual_online',
+                      'group_offline', 'group_online')),
   constraint applications_processing_chk
     check (processing_status in ('pending', 'processed'))
 );

@@ -17,9 +17,7 @@ export function buildTelegramMessage(data: ApplicationInput): string {
   const who =
     data.status === "pupil"
       ? `${f.status.options.pupil}, ${data.grade} ${f.grade.suffix}`
-      : data.status === "student"
-        ? f.status.options.student
-        : f.status.options.adult;
+      : f.status.options[data.status];
 
   const goal =
     data.goal === "other"
@@ -27,7 +25,7 @@ export function buildTelegramMessage(data: ApplicationInput): string {
       : f.goal.options[data.goal];
 
   const experience = data.studied_before
-    ? `${f.studiedBefore.yes} — ${data.studied_details ?? ""}`
+    ? `${f.studiedBefore.yes} - ${data.studied_details ?? ""}`
     : f.studiedBefore.no;
 
   const lines: string[] = [
@@ -56,7 +54,7 @@ export async function sendTelegramNotification(text: string): Promise<boolean> {
 
   if (!token || !chatId) {
     console.warn(
-      "[telegram] TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID не заданы — уведомление не отправлено.",
+      "[telegram] TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID не заданы - уведомление не отправлено.",
     );
     return false;
   }

@@ -60,7 +60,7 @@ export function AvailabilityCalendar({
                           className="rounded-lg bg-accent-soft px-2 py-1.5 text-center"
                         >
                           <span className="block text-sm font-medium tabular-nums text-accent">
-                            {formatTime(interval.start_time)}–{formatTime(interval.end_time)}
+                            {formatTime(interval.start_time)}-{formatTime(interval.end_time)}
                           </span>
                           <span className="block text-[11px] text-ink-faint">
                             {dict.schedule.modes[interval.mode]}

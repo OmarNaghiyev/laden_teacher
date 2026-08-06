@@ -14,7 +14,7 @@ type FormDict = Dict["form"];
 const initialState = {
   name: "",
   contact: "",
-  status: "" as "" | "pupil" | "student" | "adult",
+  status: "" as "" | "pupil" | "student" | "adult" | "other",
   grade: "",
   studied_before: "no" as "yes" | "no",
   studied_details: "",
@@ -46,7 +46,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
     });
   }
 
-  /** Дублирует серверные правила — только для быстрой обратной связи. */
+  /** Дублирует серверные правила - только для быстрой обратной связи. */
   function validate(): Errors {
     const next: Errors = {};
     if (!values.name.trim()) next.name = form.errors.name;
@@ -190,8 +190,8 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
             <legend className="text-sm font-medium text-ink">
               {f.status.label} <RequiredMark />
             </legend>
-            <div className="mt-2 grid gap-2 sm:grid-cols-3">
-              {(["pupil", "student", "adult"] as const).map((option) => (
+            <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {(["pupil", "student", "adult", "other"] as const).map((option) => (
                 <label
                   key={option}
                   className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
@@ -343,7 +343,14 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
               className={inputClass(!!errors.format)}
             >
               <option value="">{f.format.placeholder}</option>
-              {(["individual", "group"] as const).map((option) => (
+              {(
+                [
+                  "individual_offline",
+                  "individual_online",
+                  "group_offline",
+                  "group_online",
+                ] as const
+              ).map((option) => (
                 <option key={option} value={option}>
                   {f.format.options[option]}
                 </option>

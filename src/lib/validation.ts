@@ -7,10 +7,15 @@ import type {
 } from "@/lib/supabase";
 import { isLang, type Lang } from "@/lib/i18n";
 
-export const STATUSES: ApplicationStatus[] = ["pupil", "student", "adult"];
+export const STATUSES: ApplicationStatus[] = ["pupil", "student", "adult", "other"];
 export const LEVELS: KnowledgeLevel[] = ["beginner", "intermediate", "advanced"];
 export const GOALS: LearningGoal[] = ["school", "exam", "self", "other"];
-export const FORMATS: LessonFormat[] = ["individual", "group"];
+export const FORMATS: LessonFormat[] = [
+  "individual_offline",
+  "individual_online",
+  "group_offline",
+  "group_online",
+];
 export const MODES: AvailabilityMode[] = ["online", "offline", "both"];
 export const GRADES = Array.from({ length: 11 }, (_, i) => i + 1);
 
@@ -60,7 +65,7 @@ function nullableStr(value: unknown, max: number): string | null {
   return text.slice(0, max);
 }
 
-/** Источник истины: клиентская валидация формы — только для UX. */
+/** Источник истины: клиентская валидация формы - только для UX. */
 export function validateApplication(body: unknown): ValidationResult {
   const errors: Partial<Record<string, FieldError>> = {};
   const input = (body ?? {}) as Record<string, unknown>;

@@ -35,6 +35,7 @@ export function Formats({ dict }: { dict: Dict }) {
           {t(dict.formats.lead, {
             lessonsPerWeek: prices.lessonsPerWeek,
             lessonDuration: prices.lessonDuration,
+            paymentPeriodWeeks: prices.paymentPeriodWeeks,
           })}
         </p>
 

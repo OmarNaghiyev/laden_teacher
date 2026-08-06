@@ -66,7 +66,7 @@ export function ApplicationsTable({
     if (row.status === "pupil") {
       return `${f.status.options.pupil}, ${row.grade} ${f.grade.suffix}`;
     }
-    return row.status === "student" ? f.status.options.student : f.status.options.adult;
+    return f.status.options[row.status];
   }
 
   function describeGoal(row: ApplicationRow): string {

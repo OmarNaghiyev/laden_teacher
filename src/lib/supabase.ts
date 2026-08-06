@@ -32,10 +32,14 @@ export function isSupabaseConfigured(): boolean {
   );
 }
 
-export type ApplicationStatus = "pupil" | "student" | "adult";
+export type ApplicationStatus = "pupil" | "student" | "adult" | "other";
 export type KnowledgeLevel = "beginner" | "intermediate" | "advanced";
 export type LearningGoal = "school" | "exam" | "self" | "other";
-export type LessonFormat = "individual" | "group";
+export type LessonFormat =
+  | "individual_offline"
+  | "individual_online"
+  | "group_offline"
+  | "group_online";
 export type ProcessingStatus = "pending" | "processed";
 export type AvailabilityMode = "online" | "offline" | "both";
 

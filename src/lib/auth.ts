@@ -1,4 +1,4 @@
-// Web Crypto, а не node:crypto — модуль используется и в proxy.ts (edge runtime).
+// Web Crypto, а не node:crypto - модуль используется и в proxy.ts (edge runtime).
 
 export const SESSION_COOKIE = "laden_admin";
 export const SESSION_TTL_SECONDS = 60 * 60 * 12;
@@ -23,7 +23,7 @@ async function hmac(secret: string, message: string): Promise<string> {
   return toBase64Url(new Uint8Array(signature));
 }
 
-/** Сравнение за постоянное время — против timing-атак на пароль. */
+/** Сравнение за постоянное время - против timing-атак на пароль. */
 export function safeEqual(a: string, b: string): boolean {
   const aBytes = encoder.encode(a);
   const bBytes = encoder.encode(b);

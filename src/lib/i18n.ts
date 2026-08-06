@@ -9,7 +9,7 @@ export function isLang(value: string | undefined): value is Lang {
 // Без `as const`: иначе литеральные типы не дадут описать az тем же типом.
 const ru = {
   meta: {
-    title: "Ладен — репетитор по истории",
+    title: "Ладен - репетитор по истории",
     description:
       "Индивидуальные и групповые занятия по всеобщей истории и истории Азербайджана. Онлайн и офлайн. Школьники, студенты, взрослые.",
     langName: "Русский",
@@ -24,13 +24,14 @@ const ru = {
     schedule: "Свободное время",
     apply: "Записаться",
     contacts: "Контакты",
+    switchLang: "Перейти на азербайджанскую версию",
   },
 
   hero: {
     role: "Репетитор по истории",
     subjects: "Всеобщая история и история Азербайджана",
     intro:
-      "Готовлю школьников, студентов и взрослых: от школьной программы до подготовки к экзаменам. Занятия строю на понимании логики событий, а не на заучивании дат — так материал остаётся в голове надолго.",
+      "Готовлю школьников, студентов и взрослых: от школьной программы до подготовки к экзаменам. Занятия строю на понимании логики событий, а не на заучивании дат - так материал остаётся в голове надолго.",
     intro2:
       "Работаю индивидуально и в небольших группах, онлайн и очно. Начинаем с короткого пробного занятия, чтобы определить уровень и составить план.",
     cta: "Оставить заявку",
@@ -44,7 +45,7 @@ const ru = {
 
   formats: {
     title: "Форматы и цены",
-    lead: "Занятия проходят до {lessonsPerWeek} раз в неделю, продолжительность одного занятия — {lessonDuration} минут. Расписание согласовываем индивидуально.",
+    lead: "Занятия проходят до {lessonsPerWeek} раз в неделю, продолжительность одного занятия - {lessonDuration} минут. Расписание согласовываем индивидуально, оплата раз в {paymentPeriodWeeks} недели.",
     individual: {
       title: "Индивидуально",
       description:
@@ -60,22 +61,22 @@ const ru = {
     modes: {
       title: "Онлайн или очно",
       description:
-        "Онлайн — по видеосвязи с материалами на экране. Очно — место и условия обсуждаем отдельно.",
+        "Онлайн - по видеосвязи с материалами на экране. Очно - место и условия обсуждаем отдельно.",
     },
     trial: {
       badge: "Первое занятие",
-      title: "Пробное занятие — {minutes} минут",
+      title: "Пробное занятие - {minutes} минут",
       free: "Бесплатно",
-      paid: "Стоимость — {price}",
+      paid: "Стоимость - {price}",
       description:
         "Знакомимся, проверяем текущий уровень знаний и определяем цель. По итогам я предлагаю план занятий и формат. Никаких обязательств продолжать.",
-      note: "Условия пробного занятия уточняются — свяжитесь со мной или оставьте заявку.",
+      note: "Условия пробного занятия уточняются - свяжитесь со мной или оставьте заявку.",
     },
   },
 
   schedule: {
     title: "Свободное время",
-    lead: "Это ориентировочные интервалы, в которые я обычно свободна. Это не бронирование: выберите подходящее время и укажите его в заявке — точное время мы согласуем в переписке.",
+    lead: "Это ориентировочные интервалы, в которые я обычно свободна. Это не бронирование: выберите подходящее время и укажите его в заявке - точное время мы согласуем в переписке.",
     empty: "Расписание пока не заполнено. Оставьте заявку, и мы согласуем время в переписке.",
     freeLabel: "Свободно",
     noTime: "—",
@@ -98,7 +99,7 @@ const ru = {
 
   form: {
     title: "Заявка на занятия",
-    lead: "Заполните форму — я свяжусь с вами, чтобы обсудить детали и назначить пробное занятие. Регистрация не нужна.",
+    lead: "Заполните форму - я свяжусь с вами, чтобы обсудить детали и назначить пробное занятие. Регистрация не нужна.",
     required: "обязательное поле",
     optional: "необязательно",
     submit: "Отправить заявку",
@@ -109,7 +110,7 @@ const ru = {
     successAgain: "Отправить ещё одну заявку",
     errorTitle: "Не удалось отправить заявку",
     errorGeneric:
-      "Что-то пошло не так. Попробуйте ещё раз или напишите мне напрямую — контакты ниже.",
+      "Что-то пошло не так. Попробуйте ещё раз или напишите мне напрямую - контакты ниже.",
     fields: {
       name: {
         label: "Имя",
@@ -117,7 +118,7 @@ const ru = {
       },
       contact: {
         label: "Контакт для связи",
-        hint: "Телефон, Telegram или WhatsApp — как вам удобнее",
+        hint: "Телефон, Telegram или WhatsApp - как вам удобнее",
         placeholder: "+994 XX XXX XX XX или @username",
       },
       status: {
@@ -126,6 +127,7 @@ const ru = {
           pupil: "Школьник",
           student: "Студент",
           adult: "Взрослый",
+          other: "Другое",
         },
       },
       grade: {
@@ -169,8 +171,10 @@ const ru = {
         label: "Формат занятий",
         placeholder: "Выберите формат",
         options: {
-          individual: "Индивидуально",
-          group: "В группе",
+          individual_offline: "Индивидуально, очно",
+          individual_online: "Индивидуально, онлайн",
+          group_offline: "В группе, очно",
+          group_online: "В группе, онлайн",
         },
       },
       preferredTime: {
@@ -199,7 +203,7 @@ const ru = {
 
   contacts: {
     title: "Контакты",
-    lead: "Можно написать напрямую — отвечаю в течение дня.",
+    lead: "Можно написать напрямую - отвечаю в течение дня.",
     phone: "Телефон",
     telegram: "Telegram",
     whatsapp: "WhatsApp",
@@ -286,7 +290,7 @@ const ru = {
 
 const az: typeof ru = {
   meta: {
-    title: "Lədən — tarix müəllimi",
+    title: "Lədən - tarix müəllimi",
     description:
       "Ümumi tarix və Azərbaycan tarixi üzrə fərdi və qrup dərsləri. Onlayn və əyani. Şagirdlər, tələbələr, böyüklər.",
     langName: "Azərbaycanca",
@@ -301,13 +305,14 @@ const az: typeof ru = {
     schedule: "Boş vaxtlar",
     apply: "Müraciət et",
     contacts: "Əlaqə",
+    switchLang: "Rus versiyasına keç",
   },
 
   hero: {
     role: "Tarix üzrə repetitor",
     subjects: "Ümumi tarix və Azərbaycan tarixi",
     intro:
-      "Şagirdləri, tələbələri və böyükləri hazırlayıram: məktəb proqramından imtahan hazırlığına qədər. Dərsləri tarixləri əzbərləmək üzərində deyil, hadisələrin məntiqini anlamaq üzərində qururam — belə olanda material uzun müddət yadda qalır.",
+      "Şagirdləri, tələbələri və böyükləri hazırlayıram: məktəb proqramından imtahan hazırlığına qədər. Dərsləri tarixləri əzbərləmək üzərində deyil, hadisələrin məntiqini anlamaq üzərində qururam - belə olanda material uzun müddət yadda qalır.",
     intro2:
       "Fərdi və kiçik qruplarda, onlayn və əyani işləyirəm. Səviyyəni müəyyən etmək və plan qurmaq üçün qısa sınaq dərsindən başlayırıq.",
     cta: "Müraciət göndər",
@@ -321,7 +326,7 @@ const az: typeof ru = {
 
   formats: {
     title: "Format və qiymətlər",
-    lead: "Dərslər həftədə {lessonsPerWeek} dəfəyə qədər keçirilir, bir dərsin müddəti {lessonDuration} dəqiqədir. Cədvəli fərdi olaraq razılaşdırırıq.",
+    lead: "Dərslər həftədə {lessonsPerWeek} dəfəyə qədər keçirilir, bir dərsin müddəti {lessonDuration} dəqiqədir. Cədvəli fərdi olaraq razılaşdırırıq, ödəniş {paymentPeriodWeeks} həftədən bir edilir.",
     individual: {
       title: "Fərdi",
       description:
@@ -337,22 +342,22 @@ const az: typeof ru = {
     modes: {
       title: "Onlayn və ya əyani",
       description:
-        "Onlayn — video əlaqə ilə, materiallar ekranda. Əyani — yer və şərtləri ayrıca müzakirə edirik.",
+        "Onlayn - video əlaqə ilə, materiallar ekranda. Əyani - yer və şərtləri ayrıca müzakirə edirik.",
     },
     trial: {
       badge: "İlk dərs",
-      title: "Sınaq dərsi — {minutes} dəqiqə",
+      title: "Sınaq dərsi - {minutes} dəqiqə",
       free: "Ödənişsiz",
-      paid: "Qiyməti — {price}",
+      paid: "Qiyməti - {price}",
       description:
         "Tanış oluruq, mövcud bilik səviyyəsini yoxlayırıq və məqsədi müəyyənləşdiririk. Nəticəyə görə dərs planı və format təklif edirəm. Davam etmək üçün heç bir öhdəlik yoxdur.",
-      note: "Sınaq dərsinin şərtləri dəqiqləşdirilir — mənimlə əlaqə saxlayın və ya müraciət göndərin.",
+      note: "Sınaq dərsinin şərtləri dəqiqləşdirilir - mənimlə əlaqə saxlayın və ya müraciət göndərin.",
     },
   },
 
   schedule: {
     title: "Boş vaxtlar",
-    lead: "Bunlar adətən boş olduğum təxmini intervallardır. Bu rezervasiya deyil: uyğun vaxtı seçib müraciətdə qeyd edin — dəqiq vaxtı yazışmada razılaşdıracağıq.",
+    lead: "Bunlar adətən boş olduğum təxmini intervallardır. Bu rezervasiya deyil: uyğun vaxtı seçib müraciətdə qeyd edin - dəqiq vaxtı yazışmada razılaşdıracağıq.",
     empty: "Cədvəl hələ doldurulmayıb. Müraciət göndərin, vaxtı yazışmada razılaşdıraq.",
     freeLabel: "Boşdur",
     noTime: "—",
@@ -375,7 +380,7 @@ const az: typeof ru = {
 
   form: {
     title: "Dərslər üçün müraciət",
-    lead: "Formanı doldurun — detalları müzakirə etmək və sınaq dərsi təyin etmək üçün sizinlə əlaqə saxlayacağam. Qeydiyyat tələb olunmur.",
+    lead: "Formanı doldurun - detalları müzakirə etmək və sınaq dərsi təyin etmək üçün sizinlə əlaqə saxlayacağam. Qeydiyyat tələb olunmur.",
     required: "vacib xana",
     optional: "istəyə bağlı",
     submit: "Müraciəti göndər",
@@ -386,7 +391,7 @@ const az: typeof ru = {
     successAgain: "Yenə müraciət göndər",
     errorTitle: "Müraciəti göndərmək alınmadı",
     errorGeneric:
-      "Nəsə səhv getdi. Yenidən cəhd edin və ya mənə birbaşa yazın — əlaqə məlumatları aşağıdadır.",
+      "Nəsə səhv getdi. Yenidən cəhd edin və ya mənə birbaşa yazın - əlaqə məlumatları aşağıdadır.",
     fields: {
       name: {
         label: "Ad",
@@ -394,7 +399,7 @@ const az: typeof ru = {
       },
       contact: {
         label: "Əlaqə vasitəsi",
-        hint: "Telefon, Telegram və ya WhatsApp — sizə hansı rahatdır",
+        hint: "Telefon, Telegram və ya WhatsApp - sizə hansı rahatdır",
         placeholder: "+994 XX XXX XX XX və ya @username",
       },
       status: {
@@ -403,6 +408,7 @@ const az: typeof ru = {
           pupil: "Şagird",
           student: "Tələbə",
           adult: "Böyük",
+          other: "Digər",
         },
       },
       grade: {
@@ -446,8 +452,10 @@ const az: typeof ru = {
         label: "Dərs formatı",
         placeholder: "Formatı seçin",
         options: {
-          individual: "Fərdi",
-          group: "Qrupda",
+          individual_offline: "Fərdi, əyani",
+          individual_online: "Fərdi, onlayn",
+          group_offline: "Qrupda, əyani",
+          group_online: "Qrupda, onlayn",
         },
       },
       preferredTime: {
@@ -476,7 +484,7 @@ const az: typeof ru = {
 
   contacts: {
     title: "Əlaqə",
-    lead: "Birbaşa yaza bilərsiniz — gün ərzində cavab verirəm.",
+    lead: "Birbaşa yaza bilərsiniz - gün ərzində cavab verirəm.",
     phone: "Telefon",
     telegram: "Telegram",
     whatsapp: "WhatsApp",

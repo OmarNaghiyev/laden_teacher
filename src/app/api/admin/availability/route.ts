@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: result.error }, { status: 422 });
   }
 
-  // .single() — клиенту нужен id новой строки, чтобы показать её без перезагрузки.
+  // .single() - клиенту нужен id новой строки, чтобы показать её без перезагрузки.
   const { data, error } = await getSupabase()
     .from("availability")
     .insert(result.data)

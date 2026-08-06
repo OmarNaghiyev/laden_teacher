@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-import { otherLang, type Dict, type Lang } from "@/lib/i18n";
+import { LangSwitcher } from "@/components/LangSwitcher";
+import type { Dict, Lang } from "@/lib/i18n";
 
 export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
-  const other = otherLang(lang);
-
   const links = [
     { href: "#about", label: dict.nav.about },
     { href: "#formats", label: dict.nav.formats },
@@ -39,13 +38,7 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
               ))}
             </nav>
 
-            <Link
-              href={`/${other}`}
-              hrefLang={other}
-              className="rounded-md border border-line px-2.5 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-accent hover:text-accent"
-            >
-              {other.toUpperCase()}
-            </Link>
+            <LangSwitcher lang={lang} dict={dict} />
 
             <a
               href="#apply"

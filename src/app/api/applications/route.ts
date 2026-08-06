@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   }
 
   if (!isSupabaseConfigured()) {
-    console.error("[applications] Supabase не настроен — заявка не сохранена.");
+    console.error("[applications] Supabase не настроен - заявка не сохранена.");
     return NextResponse.json({ error: "not_configured" }, { status: 500 });
   }
 

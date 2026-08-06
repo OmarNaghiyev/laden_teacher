@@ -205,7 +205,7 @@ export function AvailabilityEditor({
                 <p className="font-medium text-ink">
                   {dict.schedule.weekdaysLong[row.weekday - 1]}
                   <span className="ml-2 tabular-nums text-ink-soft">
-                    {formatTime(row.start_time)}–{formatTime(row.end_time)}
+                    {formatTime(row.start_time)}-{formatTime(row.end_time)}
                   </span>
                 </p>
                 <p className="mt-0.5 text-xs text-ink-faint">
