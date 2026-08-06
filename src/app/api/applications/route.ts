@@ -29,8 +29,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "db" }, { status: 500 });
   }
 
-  // Уведомление отправляем после сохранения. Если Telegram недоступен, заявка
-  // всё равно сохранена — ученику показываем успех.
   const notified = await sendTelegramNotification(buildTelegramMessage(result.data));
 
   return NextResponse.json({ ok: true, notified }, { status: 201 });

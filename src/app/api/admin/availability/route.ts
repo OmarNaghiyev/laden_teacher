@@ -6,10 +6,7 @@ import { LANGS } from "@/lib/i18n";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { validateAvailability } from "@/lib/validation";
 
-/**
- * Публичные страницы кэшируются (ISR). После правки календаря сбрасываем кэш,
- * чтобы изменения были видны сразу, а не через revalidate-интервал.
- */
+/** Сбрасывает ISR-кэш, иначе календарь обновится только через revalidate-интервал. */
 function revalidatePublicPages() {
   for (const lang of LANGS) revalidatePath(`/${lang}`);
 }
@@ -24,7 +21,6 @@ async function guard() {
   return null;
 }
 
-/** Добавить интервал свободного времени. */
 export async function POST(request: Request) {
   const blocked = await guard();
   if (blocked) return blocked;
@@ -41,8 +37,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: result.error }, { status: 422 });
   }
 
-  // Возвращаем созданную строку: клиенту нужен реальный id, чтобы сразу
-  // показать интервал в списке и дать возможность его удалить.
+  // .single() — клиенту нужен id новой строки, чтобы показать её без перезагрузки.
   const { data, error } = await getSupabase()
     .from("availability")
     .insert(result.data)
@@ -58,7 +53,6 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true, row: data }, { status: 201 });
 }
 
-/** Удалить интервал. */
 export async function DELETE(request: Request) {
   const blocked = await guard();
   if (blocked) return blocked;

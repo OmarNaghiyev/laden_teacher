@@ -10,10 +10,6 @@ import { Hero } from "@/components/Hero";
 import { fetchAvailability } from "@/lib/availability";
 import { getDict, isLang } from "@/lib/i18n";
 
-/**
- * Страница пересобирается раз в минуту, чтобы изменения календаря из админки
- * появлялись на публичной странице без ручного редеплоя.
- */
 export const revalidate = 60;
 
 export default async function HomePage({

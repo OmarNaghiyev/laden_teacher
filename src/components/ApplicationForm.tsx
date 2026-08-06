@@ -7,11 +7,8 @@ import { GRADES } from "@/lib/validation";
 
 type Errors = Record<string, string>;
 
-/**
- * Компонент клиентский, поэтому получает только раздел словаря с формой:
- * пропсы клиентских компонентов сериализуются в HTML, и передавать весь
- * словарь (включая тексты админки) — лишние килобайты на каждой загрузке.
- */
+// Только раздел form, а не весь словарь: пропсы клиентских компонентов
+// сериализуются в HTML страницы.
 type FormDict = Dict["form"];
 
 const initialState = {
@@ -49,7 +46,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
     });
   }
 
-  /** Те же правила, что и на сервере — только для быстрой обратной связи. */
+  /** Дублирует серверные правила — только для быстрой обратной связи. */
   function validate(): Errors {
     const next: Errors = {};
     if (!values.name.trim()) next.name = form.errors.name;
@@ -102,7 +99,6 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
       });
 
       if (!response.ok) {
-        // Сервер — источник истины по валидации; переносим его ошибки в форму.
         if (response.status === 422) {
           const body = (await response.json()) as { fields?: Record<string, string> };
           const mapped: Errors = {};
@@ -190,7 +186,6 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
             />
           </Field>
 
-          {/* Кто учится — radio, потому что вариантов всего три */}
           <fieldset>
             <legend className="text-sm font-medium text-ink">
               {f.status.label} <RequiredMark />
@@ -220,7 +215,6 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
             <ErrorText message={errors.status} />
           </fieldset>
 
-          {/* Класс — только для школьников */}
           {values.status === "pupil" && (
             <Field label={f.grade.label} error={errors.grade} htmlFor="grade" required>
               <select
@@ -240,7 +234,6 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
             </Field>
           )}
 
-          {/* Занимался ли раньше */}
           <fieldset>
             <legend className="text-sm font-medium text-ink">
               {f.studiedBefore.label}
@@ -408,8 +401,6 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
     </section>
   );
 }
-
-// ---------- Мелкие примитивы формы ----------
 
 function inputClass(hasError: boolean): string {
   return [

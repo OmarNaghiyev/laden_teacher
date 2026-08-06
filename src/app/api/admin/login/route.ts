@@ -8,11 +8,6 @@ import {
   safeEqual,
 } from "@/lib/auth";
 
-/**
- * Проверка пароля целиком на сервере. Клиент отправляет введённый пароль,
- * получает обратно только httpOnly-cookie или ошибку — сам пароль недоступен
- * из клиентского JS и не попадает в исходный код страницы.
- */
 export async function POST(request: Request) {
   const expected = getAdminPassword();
   if (!expected) {

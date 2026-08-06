@@ -9,7 +9,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-/** Обе языковые версии генерируются статически. */
 export function generateStaticParams() {
   return LANGS.map((lang) => ({ lang }));
 }

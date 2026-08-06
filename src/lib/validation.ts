@@ -33,7 +33,7 @@ export type ApplicationInput = {
   lang: Lang;
 };
 
-/** Ключи ошибок — те же, что в dict.form.errors, плюс общий. */
+/** Ключи совпадают с dict.form.errors. */
 export type FieldError =
   | "name"
   | "contact"
@@ -60,10 +60,7 @@ function nullableStr(value: unknown, max: number): string | null {
   return text.slice(0, max);
 }
 
-/**
- * Валидация данных заявки на сервере. Клиент валидирует те же правила для UX,
- * но доверять клиенту нельзя — эта функция единственный источник истины.
- */
+/** Источник истины: клиентская валидация формы — только для UX. */
 export function validateApplication(body: unknown): ValidationResult {
   const errors: Partial<Record<string, FieldError>> = {};
   const input = (body ?? {}) as Record<string, unknown>;
@@ -137,8 +134,6 @@ export function validateApplication(body: unknown): ValidationResult {
     },
   };
 }
-
-// ---------- Валидация интервала свободного времени ----------
 
 export type AvailabilityInput = {
   weekday: number;

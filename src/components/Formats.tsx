@@ -60,7 +60,6 @@ export function Formats({ dict }: { dict: Dict }) {
           ))}
         </div>
 
-        {/* Акцент на пробном занятии */}
         <div className="mt-6 rounded-xl border border-accent/25 bg-accent-soft p-5 sm:p-6">
           <span className="inline-block rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-white">
             {dict.formats.trial.badge}
@@ -78,10 +77,6 @@ export function Formats({ dict }: { dict: Dict }) {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft">
             {dict.formats.trial.description}
           </p>
-          {/*
-            Пока условия пробного занятия не подтверждены Ладен, показываем
-            уточняющую строку. Удалите её, когда siteConfig.trial будет заполнен.
-          */}
           <p className="mt-2 text-xs text-ink-faint">{dict.formats.trial.note}</p>
         </div>
       </div>

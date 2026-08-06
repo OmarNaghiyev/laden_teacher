@@ -119,7 +119,7 @@ export function ApplicationsTable({
         </p>
       ) : (
         <>
-          {/* Мобильная версия: карточки. Таблица на телефоне нечитаема. */}
+          {/* Карточки вместо таблицы: на телефоне таблица нечитаема. */}
           <ul className="mt-4 space-y-3 lg:hidden">
             {visible.map((row) => (
               <li
@@ -170,7 +170,6 @@ export function ApplicationsTable({
             ))}
           </ul>
 
-          {/* Десктопная версия: таблица */}
           <div className="mt-4 hidden overflow-x-auto rounded-xl border border-line lg:block">
             <table className="w-full border-collapse text-sm">
               <thead>
@@ -308,10 +307,7 @@ function StatusBadge({
   );
 }
 
-/**
- * Часовой пояс задан явно: иначе сервер (UTC на Vercel) и браузер отрендерили бы
- * разное время и React выдал бы ошибку гидратации.
- */
+/** timeZone задан явно: иначе UTC на сервере и локальный в браузере ломают гидратацию. */
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleString("ru-RU", {
     day: "2-digit",

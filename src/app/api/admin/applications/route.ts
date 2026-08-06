@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-guard";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 
-/** Смена статуса обработки заявки. */
 export async function PATCH(request: Request) {
   if (!(await isAdminAuthenticated())) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });

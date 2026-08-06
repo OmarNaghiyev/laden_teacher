@@ -5,10 +5,6 @@ import { useState } from "react";
 
 import type { Dict } from "@/lib/i18n";
 
-/**
- * Форма отправляет пароль на /api/admin/login. Никакого сравнения на клиенте:
- * правильный пароль существует только в переменной окружения на сервере.
- */
 export function LoginForm({ dict }: { dict: Dict }) {
   const router = useRouter();
   const [password, setPassword] = useState("");

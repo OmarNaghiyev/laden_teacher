@@ -39,7 +39,6 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
               ))}
             </nav>
 
-            {/* Переключатель языка: ссылка на ту же страницу другого языка. */}
             <Link
               href={`/${other}`}
               hrefLang={other}
@@ -57,7 +56,6 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
           </div>
         </div>
 
-        {/* Мобильная навигация: горизонтальная прокрутка под шапкой. */}
         <nav className="-mx-4 flex gap-1 overflow-x-auto px-4 pb-2 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {links.map((link) => (
             <a

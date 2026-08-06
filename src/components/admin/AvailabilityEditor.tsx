@@ -65,8 +65,6 @@ export function AvailabilityEditor({
 
       setNote("");
       setRows((previous) => [...previous, body.row as AvailabilityRow]);
-      // Обновляем серверные данные, чтобы публичная страница и перезагрузка
-      // админки показывали то же, что уже видно в списке.
       router.refresh();
     } catch {
       setError(v.errorGeneric);
@@ -108,7 +106,6 @@ export function AvailabilityEditor({
       <h1 className="text-xl font-bold text-ink">{v.title}</h1>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">{v.lead}</p>
 
-      {/* Добавление интервала */}
       <form
         onSubmit={handleAdd}
         className="mt-6 rounded-xl border border-line bg-paper p-4 sm:p-5"
@@ -193,7 +190,6 @@ export function AvailabilityEditor({
         </button>
       </form>
 
-      {/* Текущие интервалы, сгруппированные по дням */}
       {sorted.length === 0 ? (
         <p className="mt-6 rounded-xl border border-dashed border-line p-8 text-center text-sm text-ink-faint">
           {v.empty}

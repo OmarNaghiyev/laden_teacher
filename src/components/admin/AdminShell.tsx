@@ -3,7 +3,6 @@ import Link from "next/link";
 import { LogoutButton } from "@/components/admin/LogoutButton";
 import type { Dict } from "@/lib/i18n";
 
-/** Общая обёртка страниц админки: заголовок, вкладки, выход. */
 export function AdminShell({
   dict,
   active,

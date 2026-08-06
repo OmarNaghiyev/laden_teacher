@@ -6,8 +6,7 @@ export function isLang(value: string | undefined): value is Lang {
   return !!value && (LANGS as readonly string[]).includes(value);
 }
 
-// Без `as const`: типы должны быть широкими (string / string[]),
-// иначе азербайджанский словарь не пройдёт проверку типов.
+// Без `as const`: иначе литеральные типы не дадут описать az тем же типом.
 const ru = {
   meta: {
     title: "Ладен — репетитор по истории",
@@ -285,7 +284,6 @@ const ru = {
   },
 };
 
-/** Азербайджанская версия. Структура должна полностью совпадать с ru. */
 const az: typeof ru = {
   meta: {
     title: "Lədən — tarix müəllimi",
@@ -571,7 +569,7 @@ export function getDict(lang: Lang): Dict {
   return dictionaries[lang];
 }
 
-/** Простая подстановка {placeholder} в строку. */
+/** Подстановка {placeholder}. */
 export function t(template: string, vars: Record<string, string | number>): string {
   return template.replace(/\{(\w+)\}/g, (match, key: string) =>
     key in vars ? String(vars[key]) : match,

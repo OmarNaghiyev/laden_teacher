@@ -4,11 +4,7 @@ import {
   type AvailabilityRow,
 } from "@/lib/supabase";
 
-/**
- * Все интервалы свободного времени, отсортированные по дню недели и началу.
- * Если БД не настроена или запрос упал, возвращаем пустой список — публичная
- * страница должна открываться в любом случае.
- */
+/** При ошибке возвращает пустой список: публичная страница должна открыться всё равно. */
 export async function fetchAvailability(): Promise<AvailabilityRow[]> {
   if (!isSupabaseConfigured()) return [];
 
@@ -31,7 +27,7 @@ export async function fetchAvailability(): Promise<AvailabilityRow[]> {
   }
 }
 
-/** Группировка по дням недели: индекс 0 = понедельник ... 6 = воскресенье. */
+/** Индекс 0 = понедельник ... 6 = воскресенье. */
 export function groupByWeekday(rows: AvailabilityRow[]): AvailabilityRow[][] {
   const days: AvailabilityRow[][] = [[], [], [], [], [], [], []];
   for (const row of rows) {

@@ -1,7 +1,7 @@
 import { getDict } from "@/lib/i18n";
 import type { ApplicationInput } from "@/lib/validation";
 
-/** Экранирование под parse_mode=HTML в Telegram. */
+/** Под parse_mode=HTML. */
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -9,10 +9,7 @@ function escapeHtml(value: string): string {
     .replace(/>/g, "&gt;");
 }
 
-/**
- * Сообщение для Ладен. Всегда по-русски, независимо от языка сайта, на котором
- * заполнялась заявка (язык заявки указан отдельной строкой).
- */
+/** Всегда по-русски, независимо от языка сайта, на котором заполнялась заявка. */
 export function buildTelegramMessage(data: ApplicationInput): string {
   const d = getDict("ru");
   const f = d.form.fields;
@@ -52,10 +49,7 @@ export function buildTelegramMessage(data: ApplicationInput): string {
   return lines.join("\n");
 }
 
-/**
- * Отправка уведомления. Никогда не бросает исключение: заявка уже сохранена в
- * БД, и падение Telegram не должно ломать ответ ученику. Ошибка логируется.
- */
+/** Не бросает: заявка уже в БД, отказ Telegram не должен ломать ответ ученику. */
 export async function sendTelegramNotification(text: string): Promise<boolean> {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -77,7 +71,6 @@ export async function sendTelegramNotification(text: string): Promise<boolean> {
         parse_mode: "HTML",
         disable_web_page_preview: true,
       }),
-      // Не даём висеть дольше 10 секунд.
       signal: AbortSignal.timeout(10_000),
     });
 

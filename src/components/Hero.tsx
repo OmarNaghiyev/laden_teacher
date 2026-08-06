@@ -14,7 +14,6 @@ export function Hero({ dict }: { dict: Dict }) {
     <section id="about" className="scroll-mt-24 border-b border-line bg-paper-dark/40">
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
-          {/* Фото */}
           <div className="mx-auto w-32 shrink-0 sm:w-40 md:mx-0 md:w-48">
             <div className="aspect-square overflow-hidden rounded-2xl border border-line bg-paper-dark">
               {siteConfig.photo ? (
@@ -34,7 +33,6 @@ export function Hero({ dict }: { dict: Dict }) {
             </div>
           </div>
 
-          {/* Текст */}
           <div className="min-w-0 flex-1">
             <p className="text-sm font-medium uppercase tracking-wide text-accent">
               {dict.hero.role}

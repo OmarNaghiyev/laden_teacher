@@ -3,12 +3,7 @@ import type { Dict } from "@/lib/i18n";
 import type { AvailabilityRow } from "@/lib/supabase";
 import { formatTime } from "@/lib/validation";
 
-/**
- * Публичный календарь свободного времени — только для просмотра.
- * Это не система бронирования: клика по интервалам нет, слоты не «занимаются».
- *
- * Мобильная версия — список дней в столбик, десктопная — сетка из 7 колонок.
- */
+/** Только для просмотра: не бронирование, интервалы не кликабельны. */
 export function AvailabilityCalendar({
   dict,
   rows,
@@ -47,7 +42,6 @@ export function AvailabilityCalendar({
                   }`}
                 >
                   <p className="text-sm font-semibold text-ink lg:text-center">
-                    {/* На узких экранах — полное название дня, на широких — короткое. */}
                     <span className="lg:hidden">{dict.schedule.weekdaysLong[index]}</span>
                     <span className="hidden lg:inline">
                       {dict.schedule.weekdaysShort[index]}

@@ -1,13 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-/**
- * Supabase-клиент. Используется ТОЛЬКО на сервере — ключи никогда не попадают
- * в клиентский бандл (нет префикса NEXT_PUBLIC_).
- *
- * Если задан SUPABASE_SERVICE_ROLE_KEY, он используется в приоритете:
- * он обходит RLS, что нужно для админки, и позволяет держать anon-ключ
- * максимально ограниченным.
- */
+// Только серверный код: ключи без NEXT_PUBLIC_ и в браузер не попадают.
 
 let cached: SupabaseClient | null = null;
 
@@ -15,6 +8,7 @@ export function getSupabase(): SupabaseClient {
   if (cached) return cached;
 
   const url = process.env.SUPABASE_URL;
+  // service_role в приоритете: он обходит RLS, что нужно админке.
   const key =
     process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
 
@@ -37,8 +31,6 @@ export function isSupabaseConfigured(): boolean {
       (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY),
   );
 }
-
-// ---------- Типы строк БД ----------
 
 export type ApplicationStatus = "pupil" | "student" | "adult";
 export type KnowledgeLevel = "beginner" | "intermediate" | "advanced";

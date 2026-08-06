@@ -1,17 +1,7 @@
-/**
- * Аутентификация админки.
- *
- * Пароль НИКОГДА не попадает в клиентский код: он живёт только в переменной
- * окружения ADMIN_PASSWORD и сравнивается на сервере. После успешного входа
- * ставится httpOnly-cookie с подписанным (HMAC-SHA256) токеном, в котором нет
- * самого пароля — только срок жизни и подпись.
- *
- * Реализация на Web Crypto, чтобы работать и в Node-, и в Edge-рантайме
- * (middleware).
- */
+// Web Crypto, а не node:crypto — модуль используется и в proxy.ts (edge runtime).
 
 export const SESSION_COOKIE = "laden_admin";
-export const SESSION_TTL_SECONDS = 60 * 60 * 12; // 12 часов
+export const SESSION_TTL_SECONDS = 60 * 60 * 12;
 
 const encoder = new TextEncoder();
 
@@ -33,11 +23,10 @@ async function hmac(secret: string, message: string): Promise<string> {
   return toBase64Url(new Uint8Array(signature));
 }
 
-/** Сравнение строк за постоянное время — защита от timing-атак на пароль. */
+/** Сравнение за постоянное время — против timing-атак на пароль. */
 export function safeEqual(a: string, b: string): boolean {
   const aBytes = encoder.encode(a);
   const bBytes = encoder.encode(b);
-  // Длины сравниваем отдельно; сам цикл всегда одной длины.
   const length = Math.max(aBytes.length, bBytes.length);
   let diff = aBytes.length ^ bBytes.length;
   for (let i = 0; i < length; i++) {

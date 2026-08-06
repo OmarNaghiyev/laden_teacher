@@ -4,7 +4,6 @@ import "../../globals.css";
 
 export const metadata: Metadata = {
   title: "Панель · Ладен",
-  // Админка не должна попадать в поисковые системы.
   robots: { index: false, follow: false },
 };
 
