@@ -32,22 +32,22 @@ export const siteConfig: SiteConfigShape = {
 
   contacts: {
     /** TODO: реальный номер, например "+994 50 123 45 67" */
-    phone: "+994 XX XXX XX XX",
+    phone: "+994 70 819 73 76",
     /** TODO: username без @, например "laden_history" */
-    telegram: "username",
+    telegram: "uroki_istorii_az",
     /** TODO: номер в международном формате без пробелов и "+", например "994501234567" */
-    whatsapp: "994XXXXXXXXX",
+    whatsapp: "994708197376",
     /** TODO: реальный email */
-    email: "email@example.com",
+    email: "ladensalmanova16@gmail.com",
   },
 
   prices: {
     /** TODO: цена индивидуального занятия */
-    individual: "XX AZN",
+    individual: "220 AZN",
     /** TODO: цена занятия в группе (за человека) */
-    group: "XX AZN",
+    group: "120 AZN",
     /** Длительность обычного занятия */
-    lessonDuration: "60",
+    lessonDuration: "90",
     /** Максимум занятий в неделю */
     lessonsPerWeek: "3",
   },
