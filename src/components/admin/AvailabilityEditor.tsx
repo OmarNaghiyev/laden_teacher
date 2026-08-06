@@ -128,25 +128,8 @@ export function AvailabilityEditor({
             </select>
           </label>
 
-          <label className="block">
-            <span className="text-xs font-medium text-ink-faint">{v.from}</span>
-            <input
-              type="time"
-              value={start}
-              onChange={(event) => setStart(event.target.value)}
-              className={fieldClass}
-            />
-          </label>
-
-          <label className="block">
-            <span className="text-xs font-medium text-ink-faint">{v.to}</span>
-            <input
-              type="time"
-              value={end}
-              onChange={(event) => setEnd(event.target.value)}
-              className={fieldClass}
-            />
-          </label>
+          <TimeField label={v.from} value={start} onChange={setStart} />
+          <TimeField label={v.to} value={end} onChange={setEnd} />
 
           <label className="block">
             <span className="text-xs font-medium text-ink-faint">{v.mode}</span>
@@ -231,3 +214,58 @@ export function AvailabilityEditor({
 
 const fieldClass =
   "mt-1 block w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+
+const HOURS = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
+const MINUTES = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, "0"));
+
+/**
+ * Два селекта вместо <input type="time">: тот берёт 12/24-часовой формат из
+ * локали браузера и показывал AM/PM. Значение остаётся строкой "HH:MM".
+ */
+function TimeField({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  const [hour, minute] = value.split(":");
+
+  return (
+    <div className="block">
+      <span className="text-xs font-medium text-ink-faint">{label}</span>
+      <div className="mt-1 flex items-center gap-1">
+        <select
+          aria-label={`${label}: часы`}
+          value={hour}
+          onChange={(event) => onChange(`${event.target.value}:${minute}`)}
+          className={timeSelectClass}
+        >
+          {HOURS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        <span className="text-ink-faint">:</span>
+        <select
+          aria-label={`${label}: минуты`}
+          value={minute}
+          onChange={(event) => onChange(`${hour}:${event.target.value}`)}
+          className={timeSelectClass}
+        >
+          {MINUTES.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+const timeSelectClass =
+  "block w-full rounded-lg border border-line bg-paper px-2 py-2 text-sm tabular-nums text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
