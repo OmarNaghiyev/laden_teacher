@@ -284,14 +284,14 @@ const ru = {
 
 const az: typeof ru = {
   meta: {
-    title: "Lədən - tarix müəllimi",
+    title: "Laden Salman - tarix müəllimi",
     description:
       "Ümumi tarix və Azərbaycan tarixi üzrə fərdi və qrup dərsləri. Onlayn və əyani. Şagirdlər, tələbələr, böyüklər.",
     langName: "Azərbaycanca",
     otherLangName: "Русский",
   },
 
-  teacherName: "Lədən",
+  teacherName: "Laden Salman",
 
   nav: {
     about: "Müəllim haqqında",
@@ -325,7 +325,7 @@ const az: typeof ru = {
     group: {
       title: "Qrupda",
       description:
-        "Səviyyəsi yaxın olan kiçik qruplar. Fərdi dərslərdən sərfəli, müzakirələr və cütlükdə iş var.",
+        "Səviyyəsi yaxın olan kiçik qruplar. Müzakirələr, cütlükdə iş və mürəkkəb mövzuların birlikdə təhlili.",
       priceLabel: "Bir nəfər üçün dərsin qiyməti",
     },
     modes: {
@@ -482,7 +482,7 @@ const az: typeof ru = {
   },
 
   footer: {
-    rights: "Lədən · Tarix üzrə repetitor",
+    rights: "Laden Salman · Tarix üzrə repetitor",
     adminLink: "Müəllim üçün giriş",
   },
 
