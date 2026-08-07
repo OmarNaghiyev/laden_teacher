@@ -96,7 +96,7 @@ export function ApplicationsTable({
             key={item.key}
             type="button"
             onClick={() => setFilter(item.key)}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-control px-3 py-1.5 text-sm font-medium transition-colors ${
               filter === item.key
                 ? "bg-accent text-white"
                 : "border border-line text-ink-soft hover:border-accent"
@@ -108,13 +108,13 @@ export function ApplicationsTable({
       </div>
 
       {error && (
-        <p role="alert" className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">
+        <p role="alert" className="mt-4 rounded-control bg-red-50 p-3 text-sm text-red-700">
           {error}
         </p>
       )}
 
       {visible.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-dashed border-line p-8 text-center text-sm text-ink-faint">
+        <p className="mt-6 rounded-block border border-dashed border-line p-8 text-center text-sm text-ink-faint">
           {a.empty}
         </p>
       ) : (
@@ -124,7 +124,7 @@ export function ApplicationsTable({
             {visible.map((row) => (
               <li
                 key={row.id}
-                className="rounded-xl border border-line bg-paper p-4 text-sm"
+                className="rounded-block border border-line bg-paper p-4 text-sm"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
@@ -158,7 +158,7 @@ export function ApplicationsTable({
                   type="button"
                   onClick={() => toggleStatus(row)}
                   disabled={savingId === row.id}
-                  className="mt-3 w-full rounded-lg border border-accent px-3 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-white disabled:opacity-60"
+                  className="mt-3 w-full rounded-control border border-accent px-3 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-white disabled:opacity-60"
                 >
                   {savingId === row.id
                     ? a.saving
@@ -170,7 +170,7 @@ export function ApplicationsTable({
             ))}
           </ul>
 
-          <div className="mt-4 hidden overflow-x-auto rounded-xl border border-line lg:block">
+          <div className="mt-4 hidden overflow-x-auto rounded-block border border-line lg:block">
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="border-b border-line bg-paper-dark/60 text-left">

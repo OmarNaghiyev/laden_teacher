@@ -1,3 +1,4 @@
+import { SectionHeading } from "@/components/SectionHeading";
 import { groupByWeekday } from "@/lib/availability";
 import type { Dict } from "@/lib/i18n";
 import type { AvailabilityRow } from "@/lib/supabase";
@@ -16,29 +17,22 @@ export function AvailabilityCalendar({
 
   return (
     <section id="schedule" className="scroll-mt-24 border-b border-line bg-paper-dark/40">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-        <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-          {dict.schedule.title}
-        </h2>
-        <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
-          {dict.schedule.lead}
-        </p>
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+        <SectionHeading title={dict.schedule.title} lead={dict.schedule.lead} />
 
         {!hasAny ? (
-          <p className="mt-6 rounded-xl border border-dashed border-line bg-paper p-6 text-center text-sm text-ink-faint">
+          <p className="mt-8 rounded-block border border-dashed border-line bg-paper p-6 text-center text-sm text-ink-faint">
             {dict.schedule.empty}
           </p>
         ) : (
-          <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-7 lg:gap-2">
+          <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-7 lg:gap-2">
             {days.map((intervals, index) => {
               const isEmpty = intervals.length === 0;
               return (
                 <div
                   key={index}
-                  className={`rounded-xl border p-3 ${
-                    isEmpty
-                      ? "border-line bg-paper/50"
-                      : "border-accent/20 bg-paper"
+                  className={`rounded-block border p-3 ${
+                    isEmpty ? "border-line bg-paper/50" : "border-accent/20 bg-paper"
                   }`}
                 >
                   <p className="text-sm font-semibold text-ink lg:text-center">
@@ -57,7 +51,7 @@ export function AvailabilityCalendar({
                       {intervals.map((interval) => (
                         <li
                           key={interval.id}
-                          className="rounded-lg bg-accent-soft px-2 py-1.5 text-center"
+                          className="rounded-control bg-accent-soft px-2 py-1.5 text-center"
                         >
                           <span className="block text-sm font-medium tabular-nums text-accent">
                             {formatTime(interval.start_time)}-{formatTime(interval.end_time)}

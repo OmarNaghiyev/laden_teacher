@@ -39,7 +39,7 @@ export function AdminShell({
             <Link
               key={tab.key}
               href={tab.href}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className={`rounded-control px-3 py-1.5 text-sm font-medium transition-colors ${
                 active === tab.key
                   ? "bg-accent text-white"
                   : "text-ink-soft hover:bg-paper-dark"

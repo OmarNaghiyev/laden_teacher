@@ -18,7 +18,7 @@ export function LogoutButton({ label }: { label: string }) {
       type="button"
       onClick={handleClick}
       disabled={pending}
-      className="rounded-md border border-line px-3 py-1.5 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-60"
+      className="rounded-control border border-line px-3 py-1.5 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent disabled:opacity-60"
     >
       {label}
     </button>

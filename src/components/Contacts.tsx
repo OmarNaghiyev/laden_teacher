@@ -1,3 +1,4 @@
+import { SectionHeading } from "@/components/SectionHeading";
 import type { Dict } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 
@@ -33,20 +34,17 @@ export function Contacts({ dict }: { dict: Dict }) {
 
   return (
     <section id="contacts" className="scroll-mt-24 bg-paper-dark/40">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-        <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-          {dict.contacts.title}
-        </h2>
-        <p className="mt-3 text-[15px] text-ink-soft">{dict.contacts.lead}</p>
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
+        <SectionHeading title={dict.contacts.title} lead={dict.contacts.lead} />
 
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {items.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                className="flex items-center justify-between gap-3 rounded-xl border border-line bg-paper px-4 py-3.5 transition-colors hover:border-accent"
+                className="flex items-center justify-between gap-3 rounded-block border border-line bg-paper px-4 py-3.5 transition-colors hover:border-accent"
               >
                 <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-wide text-ink-faint">

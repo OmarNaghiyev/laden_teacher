@@ -44,7 +44,7 @@ export function LoginForm({ dict }: { dict: Dict }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-6 rounded-xl border border-line bg-paper p-5"
+      className="mt-6 rounded-block border border-line bg-paper p-5"
     >
       <label htmlFor="password" className="text-sm font-medium text-ink">
         {dict.admin.password}
@@ -56,7 +56,7 @@ export function LoginForm({ dict }: { dict: Dict }) {
         autoComplete="current-password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
-        className="mt-1.5 block w-full rounded-lg border border-line bg-paper px-3 py-2.5 text-[15px] text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+        className="mt-1.5 block w-full rounded-control border border-line bg-paper px-3 py-2.5 text-[15px] text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
       />
 
       {error && (
@@ -68,7 +68,7 @@ export function LoginForm({ dict }: { dict: Dict }) {
       <button
         type="submit"
         disabled={pending || password.length === 0}
-        className="mt-4 w-full rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-4 w-full rounded-control bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60"
       >
         {pending ? dict.admin.loggingIn : dict.admin.login}
       </button>

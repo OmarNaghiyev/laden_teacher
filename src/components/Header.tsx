@@ -31,7 +31,7 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-md px-2.5 py-1.5 text-sm text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink"
+                  className="rounded-control px-2.5 py-1.5 text-sm text-ink-soft transition-colors hover:bg-paper-dark hover:text-ink"
                 >
                   {link.label}
                 </a>
@@ -42,7 +42,7 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
 
             <a
               href="#apply"
-              className="rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
+              className="rounded-control bg-accent px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
             >
               {dict.nav.apply}
             </a>
@@ -54,7 +54,7 @@ export function Header({ lang, dict }: { lang: Lang; dict: Dict }) {
             <a
               key={link.href}
               href={link.href}
-              className="shrink-0 rounded-md bg-paper-dark px-2.5 py-1 text-xs font-medium text-ink-soft"
+              className="shrink-0 rounded-control bg-paper-dark px-2.5 py-1 text-xs font-medium text-ink-soft"
             >
               {link.label}
             </a>

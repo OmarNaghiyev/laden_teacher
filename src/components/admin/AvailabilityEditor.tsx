@@ -108,7 +108,7 @@ export function AvailabilityEditor({
 
       <form
         onSubmit={handleAdd}
-        className="mt-6 rounded-xl border border-line bg-paper p-4 sm:p-5"
+        className="mt-6 rounded-block border border-line bg-paper p-4 sm:p-5"
       >
         <h2 className="text-sm font-semibold text-ink">{v.addTitle}</h2>
 
@@ -167,14 +167,14 @@ export function AvailabilityEditor({
         <button
           type="submit"
           disabled={adding}
-          className="mt-4 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
+          className="mt-4 rounded-control bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
         >
           {adding ? v.adding : v.add}
         </button>
       </form>
 
       {sorted.length === 0 ? (
-        <p className="mt-6 rounded-xl border border-dashed border-line p-8 text-center text-sm text-ink-faint">
+        <p className="mt-6 rounded-block border border-dashed border-line p-8 text-center text-sm text-ink-faint">
           {v.empty}
         </p>
       ) : (
@@ -182,7 +182,7 @@ export function AvailabilityEditor({
           {sorted.map((row) => (
             <li
               key={row.id}
-              className="flex items-center justify-between gap-3 rounded-lg border border-line bg-paper px-4 py-3 text-sm"
+              className="flex items-center justify-between gap-3 rounded-control border border-line bg-paper px-4 py-3 text-sm"
             >
               <div className="min-w-0">
                 <p className="font-medium text-ink">
@@ -200,7 +200,7 @@ export function AvailabilityEditor({
                 type="button"
                 onClick={() => handleRemove(row.id)}
                 disabled={removingId === row.id}
-                className="shrink-0 rounded-md border border-line px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-red-400 hover:text-red-700 disabled:opacity-50"
+                className="shrink-0 rounded-control border border-line px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-red-400 hover:text-red-700 disabled:opacity-50"
               >
                 {removingId === row.id ? v.removing : v.remove}
               </button>
@@ -213,7 +213,7 @@ export function AvailabilityEditor({
 }
 
 const fieldClass =
-  "mt-1 block w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+  "mt-1 block w-full rounded-control border border-line bg-paper px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
 
 const HOURS = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
 const MINUTES = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, "0"));
@@ -268,4 +268,4 @@ function TimeField({
 }
 
 const timeSelectClass =
-  "block w-full rounded-lg border border-line bg-paper px-2 py-2 text-sm tabular-nums text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+  "block w-full rounded-control border border-line bg-paper px-2 py-2 text-sm tabular-nums text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";

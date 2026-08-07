@@ -16,7 +16,7 @@ const ru = {
     otherLangName: "Azərbaycanca",
   },
 
-  teacherName: "Ладен",
+  teacherName: "Ладен Салман",
 
   nav: {
     about: "О преподавателе",
@@ -36,11 +36,6 @@ const ru = {
       "Работаю индивидуально и в небольших группах, онлайн и очно. Начинаем с короткого пробного занятия, чтобы определить уровень и составить план.",
     cta: "Оставить заявку",
     ctaSecondary: "Посмотреть свободное время",
-    badges: {
-      online: "Онлайн и очно",
-      individual: "Индивидуально и в группе",
-      levels: "Школьники · студенты · взрослые",
-    },
   },
 
   formats: {
@@ -55,7 +50,7 @@ const ru = {
     group: {
       title: "В группе",
       description:
-        "Небольшие группы близкого уровня. Дешевле индивидуальных занятий, есть обсуждения и работа в паре.",
+        "Небольшие группы близкого уровня. Обсуждения, работа в парах и совместный разбор сложных тем.",
       priceLabel: "Цена за занятие с человека",
     },
     modes: {
@@ -70,13 +65,12 @@ const ru = {
       paid: "Стоимость - {price}",
       description:
         "Знакомимся, проверяем текущий уровень знаний и определяем цель. По итогам я предлагаю план занятий и формат. Никаких обязательств продолжать.",
-      note: "Условия пробного занятия уточняются - свяжитесь со мной или оставьте заявку.",
     },
   },
 
   schedule: {
     title: "Свободное время",
-    lead: "Это ориентировочные интервалы, в которые я обычно свободна. Это не бронирование: выберите подходящее время и укажите его в заявке - точное время мы согласуем в переписке.",
+    lead: "Это ориентировочные интервалы, в которые я обычно свободна.Точное время мы согласуем в переписке.",
     empty: "Расписание пока не заполнено. Оставьте заявку, и мы согласуем время в переписке.",
     freeLabel: "Свободно",
     noTime: "—",
@@ -317,11 +311,6 @@ const az: typeof ru = {
       "Fərdi və kiçik qruplarda, onlayn və əyani işləyirəm. Səviyyəni müəyyən etmək və plan qurmaq üçün qısa sınaq dərsindən başlayırıq.",
     cta: "Müraciət göndər",
     ctaSecondary: "Boş vaxtlara bax",
-    badges: {
-      online: "Onlayn və əyani",
-      individual: "Fərdi və qrupda",
-      levels: "Şagirdlər · tələbələr · böyüklər",
-    },
   },
 
   formats: {
@@ -351,7 +340,6 @@ const az: typeof ru = {
       paid: "Qiyməti - {price}",
       description:
         "Tanış oluruq, mövcud bilik səviyyəsini yoxlayırıq və məqsədi müəyyənləşdiririk. Nəticəyə görə dərs planı və format təklif edirəm. Davam etmək üçün heç bir öhdəlik yoxdur.",
-      note: "Sınaq dərsinin şərtləri dəqiqləşdirilir - mənimlə əlaqə saxlayın və ya müraciət göndərin.",
     },
   },
 

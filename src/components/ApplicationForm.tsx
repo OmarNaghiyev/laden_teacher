@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { SectionHeading } from "@/components/SectionHeading";
 import type { Dict, Lang } from "@/lib/i18n";
 import { GRADES } from "@/lib/validation";
 
@@ -128,7 +129,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
     return (
       <section id="apply" className="scroll-mt-24 border-b border-line">
         <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-          <div className="rounded-xl border border-accent/25 bg-accent-soft p-6 text-center sm:p-10">
+          <div className="rounded-block border border-accent/25 bg-accent-soft p-6 text-center sm:p-10">
             <h2 className="text-2xl font-bold text-ink">{form.successTitle}</h2>
             <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-ink-soft">
               {form.successText}
@@ -136,7 +137,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
             <button
               type="button"
               onClick={() => setDone(false)}
-              className="mt-6 rounded-lg border border-accent bg-paper px-5 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
+              className="mt-6 rounded-control border border-accent bg-paper px-5 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
             >
               {form.successAgain}
             </button>
@@ -148,13 +149,10 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
 
   return (
     <section id="apply" className="scroll-mt-24 border-b border-line">
-      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
-        <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-          {form.title}
-        </h2>
-        <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{form.lead}</p>
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+        <SectionHeading title={form.title} lead={form.lead} />
 
-        <form onSubmit={handleSubmit} noValidate className="mt-7 space-y-5">
+        <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-5">
           <Field label={f.name.label} error={errors.name} htmlFor="name" required>
             <input
               id="name"
@@ -194,7 +192,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
               {(["pupil", "student", "adult", "other"] as const).map((option) => (
                 <label
                   key={option}
-                  className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                  className={`flex cursor-pointer items-center gap-2 rounded-control border px-3 py-2.5 text-sm transition-colors ${
                     values.status === option
                       ? "border-accent bg-accent-soft text-accent"
                       : "border-line bg-paper text-ink-soft hover:border-accent/40"
@@ -242,7 +240,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
               {(["yes", "no"] as const).map((option) => (
                 <label
                   key={option}
-                  className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border px-3 py-2.5 text-sm transition-colors sm:flex-none sm:px-6 ${
+                  className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-control border px-3 py-2.5 text-sm transition-colors sm:flex-none sm:px-6 ${
                     values.studied_before === option
                       ? "border-accent bg-accent-soft text-accent"
                       : "border-line bg-paper text-ink-soft hover:border-accent/40"
@@ -389,7 +387,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
           {failed && (
             <div
               role="alert"
-              className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+              className="rounded-control border border-red-200 bg-red-50 p-4 text-sm text-red-800"
             >
               <p className="font-semibold">{form.errorTitle}</p>
               <p className="mt-1">{form.errorGeneric}</p>
@@ -399,7 +397,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-lg bg-accent px-5 py-3.5 text-base font-semibold text-white transition-colors hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-8"
+            className="w-full rounded-control bg-accent px-5 py-3.5 text-base font-semibold text-white transition-colors hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:px-8"
           >
             {submitting ? form.submitting : form.submit}
           </button>
@@ -411,7 +409,7 @@ export function ApplicationForm({ form, lang }: { form: FormDict; lang: Lang }) 
 
 function inputClass(hasError: boolean): string {
   return [
-    "mt-1.5 block w-full rounded-lg border bg-paper px-3 py-2.5 text-[15px] text-ink",
+    "mt-1.5 block w-full rounded-control border bg-paper px-3 py-2.5 text-[15px] text-ink",
     "placeholder:text-ink-faint/70 focus:outline-none focus:ring-2 focus:ring-accent/30",
     hasError ? "border-red-400 focus:border-red-500" : "border-line focus:border-accent",
   ].join(" ");

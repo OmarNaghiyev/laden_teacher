@@ -4,20 +4,14 @@ import type { Dict } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 
 export function Hero({ dict }: { dict: Dict }) {
-  const badges = [
-    dict.hero.badges.online,
-    dict.hero.badges.individual,
-    dict.hero.badges.levels,
-  ];
-
   return (
     <section id="about" className="scroll-mt-24 border-b border-line bg-paper-dark/40">
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
+      <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
           <div className="mx-auto w-40 shrink-0 sm:w-48 md:mx-0 md:w-56">
             {/* aspect-[784/1190]: реальное соотношение фото - вертикальное,
                 ~2:3 (проверено по самому файлу; кроп отсутствует). */}
-            <div className="aspect-[784/1190] overflow-hidden rounded-2xl border border-line bg-paper-dark">
+            <div className="aspect-[784/1190] overflow-hidden rounded-block border border-line bg-paper-dark">
               {siteConfig.photo ? (
                 <Image
                   src={siteConfig.photo}
@@ -36,40 +30,33 @@ export function Hero({ dict }: { dict: Dict }) {
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-medium uppercase tracking-wide text-accent">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               {dict.hero.role}
             </p>
-            <h1 className="mt-1 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
               {dict.teacherName}
             </h1>
-            <p className="mt-2 text-base text-ink-soft sm:text-lg">{dict.hero.subjects}</p>
 
-            <div className="mt-5 space-y-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
+            <div className="mt-4 flex items-center gap-3">
+              <span className="timescale h-3 w-24 shrink-0 opacity-40" aria-hidden="true" />
+              <p className="text-base text-ink-soft sm:text-lg">{dict.hero.subjects}</p>
+            </div>
+
+            <div className="mt-6 space-y-3 text-[15px] leading-relaxed text-ink-soft sm:text-base">
               <p>{dict.hero.intro}</p>
               <p>{dict.hero.intro2}</p>
             </div>
 
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {badges.map((badge) => (
-                <li
-                  key={badge}
-                  className="rounded-full border border-line bg-paper px-3 py-1 text-xs font-medium text-ink-soft"
-                >
-                  {badge}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#apply"
-                className="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark sm:text-base"
+                className="inline-flex items-center justify-center rounded-control bg-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark sm:text-base"
               >
                 {dict.hero.cta}
               </a>
               <a
                 href="#schedule"
-                className="inline-flex items-center justify-center rounded-lg border border-line bg-paper px-5 py-3 text-sm font-semibold text-ink-soft transition-colors hover:border-accent hover:text-accent sm:text-base"
+                className="inline-flex items-center justify-center rounded-control border border-line bg-paper px-5 py-3 text-sm font-semibold text-ink-soft transition-colors hover:border-accent hover:text-accent sm:text-base"
               >
                 {dict.hero.ctaSecondary}
               </a>

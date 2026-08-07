@@ -13,6 +13,13 @@
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
+  /* Заголовки - PT Serif (кириллица + латиница), тело - системный sans. */
+  --font-display: var(--font-pt-serif), Georgia, "Times New Roman", serif;
+
+  /* Своя шкала радиусов вместо дефолтной Tailwind: только два значения,
+     мелкое для управляющих элементов и крупное для блоков. */
+  --radius-control: 4px;
+  --radius-block: 10px;
 }
 
 html {
@@ -28,9 +35,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/*
+  Тематический акцент: вертикальные штрихи разной длины, как отметки на шкале
+  времени. Используется в hero и в шапке календаря - один визуальный мотив,
+  а не два случайных декора.
+*/
+.timescale {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-accent) 0 1px,
+    transparent 1px 9px
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
+import { ptSerif } from "@/lib/fonts";
 import { LANGS, getDict, isLang } from "@/lib/i18n";
 import "../../globals.css";
 
@@ -45,7 +46,7 @@ export default async function SiteLayout({
   if (!isLang(lang)) notFound();
 
   return (
-    <html lang={lang}>
+    <html lang={lang} className={ptSerif.variable}>
       <body>{children}</body>
     </html>
   );
