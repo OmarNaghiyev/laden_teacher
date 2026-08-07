@@ -14,14 +14,16 @@ export function Hero({ dict }: { dict: Dict }) {
     <section id="about" className="scroll-mt-24 border-b border-line bg-paper-dark/40">
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
-          <div className="mx-auto w-32 shrink-0 sm:w-40 md:mx-0 md:w-48">
-            <div className="aspect-square overflow-hidden rounded-2xl border border-line bg-paper-dark">
+          <div className="mx-auto w-40 shrink-0 sm:w-48 md:mx-0 md:w-56">
+            {/* aspect-[784/1190]: реальное соотношение фото - вертикальное,
+                ~2:3 (проверено по самому файлу; кроп отсутствует). */}
+            <div className="aspect-[784/1190] overflow-hidden rounded-2xl border border-line bg-paper-dark">
               {siteConfig.photo ? (
                 <Image
                   src={siteConfig.photo}
                   alt={dict.teacherName}
-                  width={192}
-                  height={192}
+                  width={224}
+                  height={340}
                   className="h-full w-full object-cover"
                   priority
                 />
