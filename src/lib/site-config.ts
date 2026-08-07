@@ -12,7 +12,7 @@ type SiteConfigShape = {
 };
 
 export const siteConfig: SiteConfigShape = {
-  photo: null,
+  photo: "/laden.jpg",
 
   contacts: {
     phone: "+994 70 819 73 76",
