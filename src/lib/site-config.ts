@@ -6,7 +6,7 @@ type SiteConfigShape = {
     group: string;
     lessonDuration: string;
     lessonsPerWeek: string;
-    paymentPeriodWeeks: string;
+    paymentPeriodLessons: string;
   };
   trial: { durationMinutes: string; isFree: boolean; price: string };
 };
@@ -26,7 +26,7 @@ export const siteConfig: SiteConfigShape = {
     group: "120 AZN",
     lessonDuration: "90",
     lessonsPerWeek: "3",
-    paymentPeriodWeeks: "4",
+    paymentPeriodLessons: "12",
   },
 
   trial: {

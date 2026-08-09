@@ -40,7 +40,7 @@ const ru = {
 
   formats: {
     title: "Форматы и цены",
-    lead: "Занятия проходят до {lessonsPerWeek} раз в неделю, продолжительность одного занятия - {lessonDuration} минут. Расписание согласовываем индивидуально, оплата раз в {paymentPeriodWeeks} недели.",
+    lead: "Занятия проходят до {lessonsPerWeek} раз в неделю, продолжительность одного занятия - {lessonDuration} минут. Расписание согласовываем индивидуально, оплата раз в {paymentPeriodLessons} уроков.",
     individual: {
       title: "Индивидуально",
       description:
@@ -315,7 +315,7 @@ const az: typeof ru = {
 
   formats: {
     title: "Format və qiymətlər",
-    lead: "Dərslər həftədə {lessonsPerWeek} dəfəyə qədər keçirilir, bir dərsin müddəti {lessonDuration} dəqiqədir. Cədvəli fərdi olaraq razılaşdırırıq, ödəniş {paymentPeriodWeeks} həftədən bir edilir.",
+    lead: "Dərslər həftədə {lessonsPerWeek} dəfəyə qədər keçirilir, bir dərsin müddəti {lessonDuration} dəqiqədir. Cədvəli fərdi olaraq razılaşdırırıq, ödəniş hər {paymentPeriodLessons} dərsdən bir edilir.",
     individual: {
       title: "Fərdi",
       description:
