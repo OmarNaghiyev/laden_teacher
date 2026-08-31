@@ -65,7 +65,7 @@ function nullableStr(value: unknown, max: number): string | null {
   return text.slice(0, max);
 }
 
-/** Источник истины: клиентская валидация формы - только для UX. */
+/** Серверная валидация — источник истины. Клиентская в форме дублирует её только ради быстрой обратной связи. */
 export function validateApplication(body: unknown): ValidationResult {
   const errors: Partial<Record<string, FieldError>> = {};
   const input = (body ?? {}) as Record<string, unknown>;

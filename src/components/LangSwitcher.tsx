@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { otherLang, type Dict, type Lang } from "@/lib/i18n";
 
-/** Показывает флаг текущего языка, ведёт на другой. */
 export function LangSwitcher({ lang, dict }: { lang: Lang; dict: Dict }) {
   const other = otherLang(lang);
 
